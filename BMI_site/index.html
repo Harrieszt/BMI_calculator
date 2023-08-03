@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" type="text/css" href="stlyes.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="navbar-left">
+          <h1>BMI Calculator</h1>
+        </div>
+        <div class="navbar-right">
+          <a href="./pages/about.html">ABOUT</a>
+        </div>
+    </nav>
+
+  <div class="card">
+    <div class="card_header">
+        <h1>BMI Calculator</h1>
+    </div>
+    <div class="input">
+        <div class="high">
+            <label for="height">Height (cm) :</label>
+            <input type="number" id="height" placeholder="Enter height in centimeters"><br>
+        </div>
+        
+        <div class="wieght">
+            <label for="weight">Weight (kg) :</label>
+            <input type="number" id="weight" placeholder="Enter weight in kilograms"><br>
+        </div>
+    </div>
+    
+    <button id="cal-btn" onclick="calculateBMI()">Calculate BMI</button>
+
+    <h2>Result</h2>
+    <p id="result"></p>
+
+    <table>
+      <tr>
+        <th>BMI</th>
+        <th>Category</th>
+      </tr>
+      <tr class="severely-underweight">
+        <td>&lt; 16</td>
+        <td>Severely underweight</td>
+      </tr>
+      <tr class="underweight">
+        <td>16 - 16.9</td>
+        <td>Underweight</td>
+      </tr>
+      <tr class="mildly-underweight">
+        <td>17 - 18.4</td>
+        <td>Mildly underweight</td>
+      </tr>
+      <tr class="normal-weight">
+        <td>18.5 - 24.9</td>
+        <td>Normal weight</td>
+      </tr>
+      <tr class="overweight">
+        <td>25 - 29.9</td>
+        <td>Overweight</td>
+      </tr>
+      <tr class="obesity-moderate">
+        <td>30 - 34.9</td>
+        <td>Obesity Class I (Moderate)</td>
+      </tr>
+      <tr class="obesity-severe">
+        <td>35 - 39.9</td>
+        <td>Obesity Class II (Severe)</td>
+      </tr>
+      <tr class="obesity-very-severe">
+        <td>&gt; 40</td>
+        <td>Obesity Class III (Very severe)</td>
+      </tr>
+    </table>
+
+    <script src="app.js"></script>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 Rick Astley. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

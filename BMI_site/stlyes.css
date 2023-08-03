@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .title{
+      text-align: left;
+  }
+  
+  nav {
+    background-color: #333; /* Background color of the navigation bar */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* To push the title and button to the opposite sides */
+    align-items: center;
+    color: #fff; /* Text color for the title and button */
+  }
+  
+  .navbar-left h1 {
+    margin: 0;
+  }
+  
+  .navbar-right a {
+      text-decoration: none;
+    background-color: #0988ff; /* Background color of the button */
+    color: #fff; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s ease;
+  }
+  
+  .navbar-right a:hover{
+    background-color: #2fffac; /* Background color of the button */
+    color: #fff; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s;
+  }
+  
+  .card {
+    margin: 20px;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-self: center;
+  }
+  
+  .card_header {
+    background-color: #34ac00;
+    color: #fff;
+    padding: 1px;
+    border-radius: 8px;
+  }
+  
+  #dev {
+      text-decoration: none;
+      color: #fff;
+  }
+  
+  #song {
+      text-decoration: none;
+      color: #0988ff;
+  }
+  
+  h2 {
+    margin: 0;
+  }
+  
+  img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  footer {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 300px;
+    margin: 20px auto;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .high {
+    margin-top: 6px;
+    margin-bottom: 3px;
+  }
+
+  .wieght {
+    margin-top: 3px;
+    margin-bottom: 6px;
+  }
+
+  #result {
+    background-color: #3b3b3b;
+    color: #fff;
+    padding: 1px;
+    border-radius: 8px;
+  }
+
+  #cal-btn {
+    margin: 8px;
+    background-color: #3b3b3b;
+    color: #fff;
+    padding: 3px;
+    border-radius: 8px;
+  }

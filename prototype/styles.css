@@ -1,0 +1,55 @@
+body {
+    background-image: url('https://66.media.tumblr.com/tumblr_m19bcxdsJ71rqfhi2o1_250.gif');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f1f1f1;
+}
+
+.calculator {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+#display {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+button {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+#clear:hover {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    background-color: red;
+    cursor: pointer;
+    transition: background-color 0.7s; 
+}
+
+#cal:hover {
+    background-color: rgb(123, 255, 0);
+    transition: background-color 0.7s; 
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}

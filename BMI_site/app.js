@@ -10,10 +10,10 @@ function calculateBMI() {
         resultElement.textContent = "Please enter valid height and weight.";
         return;
         
-    } else {
-        const bmi = weight / (height * height);
-        resultElement.textContent = "Your BMI is: " + bmi.toFixed(2);
     }
+
+    const bmi = weight / (height * height);
+    resultElement.textContent = "Your BMI is: " + bmi.toFixed(2); //float 2 point
 
     // Reset background color for all rows
     const rows = document.getElementsByTagName("tr");

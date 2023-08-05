@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #555;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+    }
+    .logo {
+      color: #fff;
+      margin-left: 20px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+    nav a:hover {
+      background-color: #444;
+    }
+    section {
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+    }
+    section:nth-child(even) {
+      background-color: #f0f0f0;
+    }
+    .active {
+      background-color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Website</h1>
+  </header>
+  <nav>
+    <div class="logo">Your Name</div>
+    <div>
+      <a href="#section1">Section 1</a>
+      <a href="#section2">Section 2</a>
+      <a href="#section3">Section 3</a>
+    </div>
+  </nav>
+  <section id="section1">
+    <h2>Section 1</h2>
+    <p>This is the content of section 1.</p>
+  </section>
+  <section id="section2">
+    <h2>Section 2</h2>
+    <p>This is the content of section 2.</p>
+  </section>
+  <section id="section3">
+    <h2>Section 3</h2>
+    <p>This is the content of section 3.</p>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    function setActiveLink() {
+      const scrollY = window.scrollY;
+      sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        if (scrollY >= sectionTop && scrollY < sectionBottom) {
+          navLinks.forEach((link) => link.classList.remove('active'));
+          navLinks[index].classList.add('active');
+        }
+      });
+    }
+
+    function stickyNav() {
+      const nav = document.querySelector('nav');
+      const headerHeight = document.querySelector('header').offsetHeight;
+      if (window.scrollY >= headerHeight) {
+        nav.classList.add('sticky');
+      } else {
+        nav.classList.remove('sticky');
+      }
+    }
+
+    function smoothScroll(event) {
+      event.preventDefault();
+      const targetId = event.target.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', smoothScroll);
+    });
+
+    window.addEventListener('scroll', () => {
+      setActiveLink();
+      stickyNav();
+    });
+  </script>
+</body>
+</html>

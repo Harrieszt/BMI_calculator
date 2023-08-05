@@ -1,42 +1,61 @@
-function calculateBMI() {
-    const heightInput = document.getElementById("height");
-    const weightInput = document.getElementById("weight");
-    const resultElement = document.getElementById("result");
+// Get the button and content elements
+const rick = document.getElementById("rick");
 
-    const height = parseFloat(heightInput.value) / 100; // Convert height from cm to meters
-    const weight = parseFloat(weightInput.value);
-
-    if (isNaN(height) || isNaN(weight)) {
-        resultElement.textContent = "Please enter valid height and weight.";
-        return;
-        
-    }
-
-    const bmi = weight / (height * height);
-    resultElement.textContent = "Your BMI is: " + bmi.toFixed(2); //float 2 point
-
-    // Reset background color for all rows
-    const rows = document.getElementsByTagName("tr");
-    for (let i = 0; i < rows.length; i++) {
-      rows[i].style.backgroundColor = "inherit";
-    }
-
-    // Change background color based on BMI range
-    if (bmi < 16) {
-      document.querySelector(".severely-underweight").style.backgroundColor = "#ffc0cb"; // Light Pink
-    } else if (bmi >= 16 && bmi < 17) {
-      document.querySelector(".underweight").style.backgroundColor = "#fff0b2"; // Light Yellow
-    } else if (bmi >= 17 && bmi < 18.5) {
-      document.querySelector(".mildly-underweight").style.backgroundColor = "#ffecb3"; // Light Yellow
-    } else if (bmi >= 18.5 && bmi < 25) {
-      document.querySelector(".normal-weight").style.backgroundColor = "#c8e6c9"; // Light Green
-    } else if (bmi >= 25 && bmi < 30) {
-      document.querySelector(".overweight").style.backgroundColor = "#ffe0b2"; // Light Orange
-    } else if (bmi >= 30 && bmi < 35) {
-      document.querySelector(".obesity-moderate").style.backgroundColor = "#ffcc80"; // Light Orange
-    } else if (bmi >= 35 && bmi < 40) {
-      document.querySelector(".obesity-severe").style.backgroundColor = "#ffab91"; // Light Orange
-    } else {
-      document.querySelector(".obesity-very-severe").style.backgroundColor = "#ff8a80"; // Light Red
-    }
+// Function to simulate typing effect
+function typeWriter(element, text, index, speed) {
+  if (index < text.length) {
+      element.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(() => typeWriter(element, text, index, speed), speed);
   }
+}
+
+// Typing effect on rackroll_ text
+const rickrolling = "Rickroll_";
+typeWriter(rick, rickrolling, 0, 50);
+
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav a');
+
+function setActiveLink() {
+  const scrollY = window.scrollY;
+  sections.forEach((section, index) => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionBottom = sectionTop + section.offsetHeight;
+    if (scrollY >= sectionTop && scrollY < sectionBottom) {
+      navLinks.forEach((link) => link.classList.remove('active'));
+      navLinks.forEach((link) => link.classList.add('inactive'));
+      navLinks[index].classList.add('active');
+      navLinks[index].classList.remove('inactive');
+    }
+  });
+}
+
+function stickyNav() {
+  const nav = document.querySelector('nav');
+  const headerHeight = document.querySelector('header').offsetHeight;
+  if (window.scrollY >= headerHeight) {
+    nav.classList.add('sticky');
+  } else {
+    nav.classList.remove('sticky');
+  }
+}
+
+//Smooth Scroll
+
+function smoothScroll(event) {
+  event.preventDefault();
+  const targetId = event.target.getAttribute('href');
+  const targetSection = document.querySelector(targetId);
+  targetSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+navLinks.forEach(link => {
+  link.addEventListener('click', smoothScroll);
+});
+
+
+window.addEventListener('scroll', () => {
+  setActiveLink();
+  stickyNav();
+});
